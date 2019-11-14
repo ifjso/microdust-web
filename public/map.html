@@ -24,7 +24,11 @@
           center: uluru
         });
         // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({ position: uluru, map: map });
+        // var marker = new google.maps.Marker({ position: uluru, map: map });
+
+        map.data.loadGeoJson('http://localhost:3000/TL_SCCO_CTPRVN.geojson', {
+          idPropertyName: 'STATE'
+        });
       }
     </script>
     <!--Load the API from the specified URL
@@ -35,7 +39,7 @@
     <script
       async
       defer
-      src="https://maps.googleapis.com/maps/api/js?key={key}&callback=initMap"
+      src="https://maps.googleapis.com/maps/api/js?key={}&callback=initMap"
     ></script>
   </body>
 </html>
