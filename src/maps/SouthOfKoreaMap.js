@@ -1,13 +1,10 @@
 import React from 'react';
 import GoogleMap from './GoogleMap';
 
-const SimpleMap = ({
-  center = { lat: 35.993201, lng: 127.759226 },
-  zoom = 7
-}) => (
+const SouthOfKoreaMap = () => (
   <GoogleMap
-    defaultCenter={center}
-    defaultZoom={zoom}
+    center={{ lat: 35.993201, lng: 127.759226 }}
+    zoom={7}
     options={{
       restriction: {
         latLngBounds: {
@@ -19,8 +16,7 @@ const SimpleMap = ({
         strictBounds: true
       }
     }}
-    yesIWantToUseGoogleMapApiInternals
-    onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+    handleApiLoaded={handleApiLoaded}
   />
 );
 
@@ -31,4 +27,4 @@ const handleApiLoaded = (map, maps) => {
 const loadMapShapes = map =>
   map.data.loadGeoJson('http://localhost:3000/TL_SCCO_CTPRVN.geojson');
 
-export default SimpleMap;
+export default SouthOfKoreaMap;

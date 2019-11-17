@@ -1,25 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 import { GOOGLE_API_KEY } from '../config/googleApiKey';
 
-const GoogleMap = ({ children, ...props }) => (
+const GoogleMap = ({
+  center = { lat: 35.993201, lng: 127.759226 },
+  zoom = 7,
+  options,
+  handleApiLoaded = x => x
+}) => (
   <div style={{ height: '100vh', width: '100%' }}>
-    <GoogleMapReact bootstrapURLKeys={{ key: GOOGLE_API_KEY }} {...props}>
-      {children}
-    </GoogleMapReact>
+    <GoogleMapReact
+      bootstrapURLKeys={{ key: GOOGLE_API_KEY }}
+      defaultCenter={center}
+      defaultZoom={zoom}
+      options
+      yesIWantToUseGoogleMapApiInternals
+      onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+    />
   </div>
 );
-
-GoogleMap.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ])
-};
-
-GoogleMap.defaultProps = {
-  children: null
-};
 
 export default GoogleMap;

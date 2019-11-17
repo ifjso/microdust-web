@@ -1,6 +1,6 @@
 import React from 'react';
-import SimpleMap from './maps/SimpleMap';
+import SouthOfKoreaMap from './maps/SouthOfKoreaMap';
 
-const App = () => <SimpleMap />;
+const App = () => <SouthOfKoreaMap />;
 
 export default App;
