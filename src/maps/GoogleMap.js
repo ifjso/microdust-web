@@ -1,12 +1,10 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
-import { GOOGLE_API_KEY } from '../config/googleApiKey';
+// import { GOOGLE_API_KEY } from '../config/googleApiKey';
 
 const GoogleMap = ({ children, ...props }) => (
   <div style={{ height: '100vh', width: '100%' }}>
-    <GoogleMapReact bootstrapURLKeys={{ key: GOOGLE_API_KEY }} {...props}>
-      {children}
-    </GoogleMapReact>
+    <GoogleMapReact {...props}>{children}</GoogleMapReact>
   </div>
 );
 

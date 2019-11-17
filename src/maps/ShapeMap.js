@@ -22,6 +22,6 @@ const handleApiLoaded = (map, maps) => {
 };
 
 const loadMapShapes = map =>
-  map.data.loadGeoJson('http://localhost:3000/TL_SCCO_CTPRVN.geojson');
+  map.data.loadGeoJson('http://localhost:3000/TL_SCCO_CTPRVN2.geojson');
 
 export default ShapeMap;

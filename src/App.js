@@ -1,5 +1,6 @@
 import React from 'react';
 import ShapeMap from './maps/ShapeMap';
+import HoverMarker from './markers/HoverMarker';
 
 const App = () => (
   <ShapeMap
@@ -16,7 +17,9 @@ const App = () => (
         strictBounds: true
       }
     }}
-  />
+  >
+    <HoverMarker lat={35.993201} lng={127.759226} text="A" />
+  </ShapeMap>
 );
 
 export default App;
