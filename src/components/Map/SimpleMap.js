@@ -5,7 +5,7 @@ const SimpleMap = ({
   center = { lat: 35.993201, lng: 127.759226 },
   zoom = 7,
   options,
-  handleApiLoaded = x => x,
+  onLoad = x => x,
   children
 }) => (
   <GoogleMap
@@ -13,7 +13,7 @@ const SimpleMap = ({
     defaultZoom={zoom}
     options
     yesIWantToUseGoogleMapApiInternals
-    onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+    onGoogleApiLoaded={({ map, maps }) => onLoad(map, maps)}
   >
     {children}
   </GoogleMap>
