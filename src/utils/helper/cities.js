@@ -18,4 +18,4 @@ const CITIES = {
   jeju: { CTPRVN_CD: '50', CTP_ENG_NM: 'Jeju-do' }
 };
 
-export const getCtprvn = cityName => CITIES[cityName].CTPRVN_CD;
+export const getCity = cityName => CITIES[cityName];
