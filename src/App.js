@@ -7,6 +7,8 @@ const App = () => (
     center={{ lat: 35.993201, lng: 127.759226 }}
     zoom={7}
     options={{
+      minZoom: 7,
+      maxZoom: 11,
       restriction: {
         latLngBounds: {
           north: 43.522419,

@@ -39,14 +39,6 @@ const loadMapShapes = (map, maps, geoData) => {
   const data = new maps.Data({ map });
 
   data.addGeoJson(geoData);
-  // data.loadGeoJson(
-  //   `http://localhost:3000/${url}`,
-  //   { idPropertyName: url },
-  //   features =>
-  //     features.forEach(feature =>
-  //       feature.setProperty('weight', Math.random() * 100)
-  //     )
-  // );
 
   data.setStyle(feature => {
     return {

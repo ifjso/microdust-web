@@ -11,7 +11,7 @@ const SimpleMap = ({
   <GoogleMap
     defaultCenter={center}
     defaultZoom={zoom}
-    options
+    options={options}
     yesIWantToUseGoogleMapApiInternals
     onGoogleApiLoaded={({ map, maps }) => onLoad(map, maps)}
   >
