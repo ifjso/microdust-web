@@ -1,7 +1,7 @@
 import React from 'react';
 import SimpleMap from './SimpleMap';
-import CTPRVN from '../data/CTPRVN';
-import SIG from '../data/SIG';
+import CTPRVN from '../../data/CTPRVN';
+import SIG from '../../data/SIG';
 
 const ShapeMap = ({
   center = { lat: 35.993201, lng: 127.759226 },

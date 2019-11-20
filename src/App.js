@@ -1,6 +1,6 @@
 import React from 'react';
-import ShapeMap from './maps/ShapeMap';
-import HoverMarker from './markers/HoverMarker';
+import ShapeMap from './components/Map/ShapeMap';
+import HoverMarker from './components/Marker/HoverMarker';
 
 const App = () => (
   <ShapeMap
