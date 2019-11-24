@@ -2,7 +2,9 @@
   "name": "microdust",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://openapi.airkorea.or.kr",
   "dependencies": {
+    "axios": "^0.19.0",
     "google-map-react": "^1.1.5",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
