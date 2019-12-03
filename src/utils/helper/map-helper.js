@@ -1,21 +1,22 @@
-import { getMicrodustsByCity } from '../../modules/api/airkorea-api';
 import { getColor, getOpacity } from '../../utils/helper/color-helper';
 import { getCity } from '../../utils/helper/cities-helper';
 import CTPRVN from '../../data/CTPRVN';
 import SIG from '../../data/SIG';
 
-const loadMapShapes = async (map, maps) => {
+const loadMapShapes = async (map, maps, data) => {
   const data1 = new maps.Data({ map });
   const data2 = new maps.Data({ map });
+  const latLngs = {};
 
   data1.addGeoJson(CTPRVN);
   data2.addGeoJson(SIG);
 
-  const data = await getMicrodustsByCity();
-
   data1.forEach(feature => {
     const city = getCity(feature.getProperty('CTPRVN_CD'));
-    feature.setProperty('value', data[0][city]);
+    feature.setProperty('value', data[city]);
+    const latLngBounds = new maps.LatLngBounds();
+    feature.getGeometry().forEachLatLng(latLng => latLngBounds.extend(latLng));
+    Object.assign(latLngs, { [city]: latLngBounds.getCenter() });
   });
 
   data2.setMap(null);
@@ -52,6 +53,8 @@ const loadMapShapes = async (map, maps) => {
       data2.setMap(null);
     }
   });
+
+  return latLngs;
 };
 
 export { loadMapShapes };
