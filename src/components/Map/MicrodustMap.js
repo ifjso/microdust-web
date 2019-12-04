@@ -3,6 +3,7 @@ import SimpleMap from './SimpleMap';
 import HoverMarker from '../Marker/HoverMarker';
 import { loadMapShapes } from '../../utils/helper/map-helper';
 import { getMicrodustsByCity } from '../../modules/api/airkorea-api';
+import { getKorCity } from '../../utils/helper/cities-helper';
 
 const MicrodustMap = ({
   center = { lat: 35.993201, lng: 127.759226 },
@@ -45,7 +46,7 @@ const MicrodustMap = ({
               key={i}
               lat={latLngs[microdust[0]].lat()}
               lng={latLngs[microdust[0]].lng()}
-              city={microdust[0]}
+              city={getKorCity(microdust[0])}
               microdust={microdust[1]}
             />
           ))
