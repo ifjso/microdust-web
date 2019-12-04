@@ -4,17 +4,17 @@ import HoverMarker from '../Marker/HoverMarker';
 import { loadMapShapes } from '../../utils/helper/map-helper';
 import { getMicrodustsByCity } from '../../modules/api/airkorea-api';
 
-const ShapeMap = ({
+const MicrodustMap = ({
   center = { lat: 35.993201, lng: 127.759226 },
   zoom = 7,
-  options,
-  children
+  options
 }) => {
   const [microdustsByCity, setMicrodustsByCity] = useState([]);
   const [latLngs, setLatLngs] = useState({});
 
   const onLoad = async (map, maps) => {
     const microdusts = await getMicrodustsByCity();
+
     const {
       dataGubun,
       dataTerm,
@@ -53,4 +53,4 @@ const ShapeMap = ({
   );
 };
 
-export default ShapeMap;
+export default MicrodustMap;

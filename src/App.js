@@ -1,8 +1,8 @@
 import React from 'react';
-import ShapeMap from './components/Map/ShapeMap';
+import MicrodustMap from './components/Map/MicrodustMap';
 
 const App = () => (
-  <ShapeMap
+  <MicrodustMap
     center={{ lat: 35.993201, lng: 127.759226 }}
     zoom={7}
     options={{
