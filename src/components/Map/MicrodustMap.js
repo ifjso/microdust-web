@@ -45,7 +45,8 @@ const MicrodustMap = ({
               key={i}
               lat={latLngs[microdust[0]].lat()}
               lng={latLngs[microdust[0]].lng()}
-              text={microdust[1]}
+              city={microdust[0]}
+              microdust={microdust[1]}
             />
           ))
         : ''}
