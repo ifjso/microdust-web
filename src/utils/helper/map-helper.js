@@ -12,7 +12,7 @@ const loadMapShapes = async (map, maps, data) => {
   data2.addGeoJson(SIG);
 
   data1.forEach(feature => {
-    const city = getCity(feature.getProperty('CTPRVN_CD'));
+    const city = getCity(feature.getProperty('CTP_ENG_NM'));
     feature.setProperty('value', data[city]);
     const latLngBounds = new maps.LatLngBounds();
     feature.getGeometry().forEachLatLng(latLng => latLngBounds.extend(latLng));
@@ -27,9 +27,7 @@ const loadMapShapes = async (map, maps, data) => {
       strokeWeight: 1,
       cursor: 'url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur)',
       fillColor: getColor(feature.getProperty('value')),
-      // fillColor: '#000',
       fillOpacity: getOpacity(feature.getProperty('value'))
-      // fillOpacity: 1
     };
   });
 
