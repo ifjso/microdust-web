@@ -1,11 +1,6 @@
-const MAX_COLOR = 255;
-const MAX_LEVEL = 11;
-
 export const getColor = value => {
   let num = 255;
   const numVal = Number(value);
-
-  num = Math.floor((MAX_COLOR / MAX_LEVEL) * 10 + 5);
 
   if (numVal >= 0 && numVal < 20) {
     num = 255;
@@ -43,18 +38,30 @@ export const getOpacity = value => {
   if (numVal >= 0 && numVal < 20) {
     num = 0.05;
   } else if (numVal >= 20 && numVal < 30) {
-    num = 0.1;
+    num = 0.12;
   } else if (numVal >= 30 && numVal < 40) {
-    num = 0.4;
+    num = 0.19;
   } else if (numVal >= 40 && numVal < 50) {
-    num = 0.65;
+    num = 0.26;
   } else if (numVal >= 50 && numVal < 60) {
-    num = 0.8;
+    num = 0.33;
   } else if (numVal >= 60 && numVal < 70) {
-    num = 0.9;
+    num = 0.4;
+  } else if (numVal >= 70 && numVal < 80) {
+    num = 0.47;
+  } else if (numVal >= 80 && numVal < 100) {
+    num = 0.54;
+  } else if (numVal >= 100 && numVal < 120) {
+    num = 0.61;
+  } else if (numVal >= 121 && numVal < 150) {
+    num = 0.71;
   } else {
-    num = 1.0;
+    num = 0.8;
   }
+
+  // TODO getColor()와 똑같이 구분
+  // TODO 구시 실제 데이터 반영
+  // TODO 각 마커 터치했을 때 확대 (이동 x)
 
   return num;
 };
