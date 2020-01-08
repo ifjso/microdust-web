@@ -59,9 +59,8 @@ export const getOpacity = value => {
     num = 0.8;
   }
 
-  // TODO getColor()와 똑같이 구분
   // TODO 구시 실제 데이터 반영
   // TODO 각 마커 터치했을 때 확대 (이동 x)
-
+  // TODO 지역이 터치되도록 구현
   return num;
 };
