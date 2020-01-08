@@ -1,15 +1,16 @@
+import find from 'lodash/find';
 import { getColor, getOpacity } from '../../utils/helper/color-helper';
 import { getCity } from '../../utils/helper/cities-helper';
 import CTPRVN from '../../data/CTPRVN';
-import SIG from '../../data/SIG';
+import SEOUL from '../../data/SEOUL';
 
-const loadMapShapes = async (map, maps, data) => {
+const loadMapShapes = async (map, maps, data, microdustsBySido) => {
   const data1 = new maps.Data({ map });
   const data2 = new maps.Data({ map });
   const latLngs = {};
 
   data1.addGeoJson(CTPRVN);
-  data2.addGeoJson(SIG);
+  data2.addGeoJson(SEOUL);
 
   data1.forEach(feature => {
     const city = getCity(feature.getProperty('CTP_ENG_NM'));
@@ -20,6 +21,13 @@ const loadMapShapes = async (map, maps, data) => {
   });
 
   data2.setMap(null);
+
+  data2.forEach(feature => {
+    feature.setProperty(
+      'value',
+      find(microdustsBySido, { cityNameEng: feature.h.SIG_ENG_NM }).pm10Value
+    );
+  });
 
   data1.setStyle(feature => {
     return {
@@ -36,8 +44,8 @@ const loadMapShapes = async (map, maps, data) => {
       strokeColor: '#fff',
       strokeWeight: 1,
       cursor: 'url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur)',
-      fillColor: '#000',
-      fillOpacity: 0.5
+      fillColor: getColor(feature.getProperty('value')),
+      fillOpacity: getOpacity(feature.getProperty('value'))
     };
   });
 

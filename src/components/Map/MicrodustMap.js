@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import SimpleMap from './SimpleMap';
 import HoverMarker from '../Marker/HoverMarker';
 import { loadMapShapes } from '../../utils/helper/map-helper';
-import { getMicrodustsByCity } from '../../modules/api/airkorea-api';
+import { getMicrodustsByCity, getMircordustsBySido } from '../../modules/api/airkorea-api';
 import { getKorCity } from '../../utils/helper/cities-helper';
 
-const MicrodustMap = ({
-  center = { lat: 35.993201, lng: 127.759226 },
-  zoom = 7,
-  options
-}) => {
+const MicrodustMap = ({ center = { lat: 35.993201, lng: 127.759226 }, zoom = 7, options }) => {
   const [microdustsByCity, setMicrodustsByCity] = useState([]);
   const [latLngs, setLatLngs] = useState({});
 
   const onLoad = async (map, maps) => {
     const microdusts = await getMicrodustsByCity();
+    const microdustsBySido = await getMircordustsBySido();
 
     const {
       dataGubun,
@@ -34,7 +31,7 @@ const MicrodustMap = ({
 
     setMicrodustsByCity(Object.entries(microdustsByCity));
 
-    const latLngs = await loadMapShapes(map, maps, microdustsByCity);
+    const latLngs = await loadMapShapes(map, maps, microdustsByCity, microdustsBySido);
     setLatLngs(latLngs);
   };
 
