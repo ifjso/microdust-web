@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://openapi.airkorea.or.kr",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "google-map-react": "^1.1.5",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
